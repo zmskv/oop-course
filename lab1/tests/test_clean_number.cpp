@@ -2,28 +2,53 @@
 #include "../src/clean_number.cpp"
 
 TEST(CleanNumberTest01, TestSet)
-{
-    ASSERT_TRUE(isCleanNumber(123));
+{   
+    // arange
+    int number = 123;
+    // act
+    bool result = isCleanNumber(number);
+    // assert
+    ASSERT_TRUE(result);
 }
 
 TEST(CleanNumberTest02, TestSet)
 {
-    ASSERT_FALSE(isCleanNumber(321));
+    // arange
+    int number = 321;
+    // act
+    bool result = isCleanNumber(number);
+    // assert
+    ASSERT_FALSE(result);
 }
 
 TEST(CleanNumberTest03, TestSet)
 {
-    ASSERT_FALSE(isCleanNumber(901));
+    // arange
+    int number = 901;
+    // act
+    bool result = isCleanNumber(number);
+    // assert
+    ASSERT_FALSE(result);
 }
 
 TEST(CleanNumberTest04, TestSet)
 {
-    ASSERT_TRUE(isCleanNumber(345));
+    // arange
+    int number = 345;
+    // act
+    bool result = isCleanNumber(number);
+    // assert
+    ASSERT_TRUE(result);
 }
 
 TEST(CleanNumberTest05, TestSet)
 {
-    ASSERT_FALSE(isCleanNumber(812));
+    // arange
+    int number = 812;
+    // act
+    bool result = isCleanNumber(number);
+    // assert
+    ASSERT_FALSE(result);
 }
 
 int main(int argc, char **argv)
