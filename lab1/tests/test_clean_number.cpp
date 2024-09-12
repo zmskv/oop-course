@@ -31,7 +31,7 @@ TEST(TestSet, NegativeCorrectCleanNumber)
     ASSERT_TRUE(result);
 }
 
-TEST(CleanNumberTest04, NegativeWrongCleanNumber)
+TEST(TestSet, NegativeWrongCleanNumber)
 {
     // arrange
     int number = 543;
