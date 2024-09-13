@@ -1,0 +1,37 @@
+name: C++ CI
+
+on:
+  push:
+    branches: 
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        lab: [lab1] 
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+   
+    - name: Install dependencies
+      run: |
+        apt-get update && apt-get install -y \
+        cmake \
+        && rm -rf /var/lib/apt/lists/*
+
+    - name: Build Project
+      run: |
+        make build
+        
+    - name: Run Tests
+      run: |
+        cd build/${{ matrix.lab }}
+        ctest
