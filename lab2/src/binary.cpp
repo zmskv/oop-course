@@ -143,20 +143,6 @@ Binary &Binary::operator-=(const Binary &other)
         throw std::underflow_error("Subtraction result would be negative.");
     }
 
-    size_t newSize = _size;
-
-    if (newSize != _size)
-    {
-        unsigned char *newData = new unsigned char[newSize];
-        for (size_t i = 0; i < newSize; i++)
-        {
-            newData[i] = _data[i];
-        }
-        delete[] _data;
-        _data = newData;
-        _size = newSize;
-    }
-
     return *this;
 }
 

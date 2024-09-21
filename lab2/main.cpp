@@ -15,7 +15,7 @@ int main()
         Binary Numb1(bin1);
         Binary Numb2(bin2);
 
-                Numb1 -= Numb2;
+        Numb1 += Numb2;
 
         std::cout << "Result of addition: ";
         for (size_t i = 0; i < Numb1.getSize(); ++i)
