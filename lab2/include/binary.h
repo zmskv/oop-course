@@ -7,9 +7,9 @@ class Binary
 {
 public:
     Binary();
-    Binary(const size_t &n, unsigned char t);
-    Binary(const std::initializer_list<unsigned char> &t);
-    Binary(const std::string &t);
+    Binary(const size_t &n, unsigned char value);
+    Binary(const std::initializer_list<unsigned char> &values);
+    Binary(const std::string &str);
     Binary(const Binary &other);
     Binary(Binary &&other) noexcept;
     ~Binary() noexcept;

@@ -17,8 +17,8 @@ TEST(BinaryTest, SizeAndDefaultConstructor)
 {
 
     size_t n = 5;
-    unsigned char t = '0';
-    Binary b(n, t);
+    unsigned char value = '0';
+    Binary b(n, value);
 
     size_t size = b.getSize();
     unsigned char *data = b.getData();
@@ -26,22 +26,22 @@ TEST(BinaryTest, SizeAndDefaultConstructor)
     EXPECT_EQ(size, n);
     for (size_t i = 0; i < size; ++i)
     {
-        EXPECT_EQ(data[i], t);
+        EXPECT_EQ(data[i], value);
     }
 }
 
 TEST(BinaryTest, InitializerListConstructor)
 {
 
-    std::initializer_list<unsigned char> t = {'1', '0', '1', '1'};
-    Binary b(t);
+    std::initializer_list<unsigned char> values = {'1', '0', '1', '1'};
+    Binary b(values);
 
     size_t size = b.getSize();
     unsigned char *data = b.getData();
 
-    EXPECT_EQ(size, t.size());
+    EXPECT_EQ(size, values.size());
     size_t i = 0;
-    for (unsigned char digit : t)
+    for (unsigned char digit : values)
     {
         EXPECT_EQ(data[i++], digit);
     }
@@ -50,16 +50,16 @@ TEST(BinaryTest, InitializerListConstructor)
 TEST(BinaryTest, StringConstructor)
 {
 
-    std::string t = "1011";
-    Binary b(t);
+    std::string str = "1011";
+    Binary b(str);
 
     size_t size = b.getSize();
     unsigned char *data = b.getData();
 
-    EXPECT_EQ(size, t.size());
+    EXPECT_EQ(size, str.size());
     for (size_t i = 0; i < size; ++i)
     {
-        EXPECT_EQ(data[i], t[i]);
+        EXPECT_EQ(data[i], str[i]);
     }
 }
 
