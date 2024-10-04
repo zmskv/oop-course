@@ -2,39 +2,39 @@
 
 Binary::Binary() : _size{0}, _data{nullptr} {}
 
-Binary::Binary(const size_t &n, unsigned char t)
+Binary::Binary(const size_t &n, unsigned char value)
 {
-    validateBit(t);
+    validateBit(value);
     _size = n;
     _data = new unsigned char[n];
     for (int i = 0; i < n; ++i)
     {
-        _data[i] = t;
+        _data[i] = value;
     }
 }
 
-Binary::Binary(const std::initializer_list<unsigned char> &t)
+Binary::Binary(const std::initializer_list<unsigned char> &values)
 {
-    _size = t.size();
+    _size = values.size();
     _data = new unsigned char[_size];
 
     size_t i = 0;
-    for (unsigned char digit : t)
+    for (unsigned char digit : values)
     {
         validateBit(digit);
         _data[i++] = digit;
     }
 }
 
-Binary::Binary(const std::string &t)
+Binary::Binary(const std::string &str)
 {
-    _size = t.size();
+    _size = str.size();
     _data = new unsigned char[_size];
 
     for (size_t i = 0; i < _size; i++)
     {
-        validateBit(t[i]);
-        _data[i] = t[i];
+        validateBit(str[i]);
+        _data[i] = str[i];
     }
 }
 
