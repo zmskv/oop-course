@@ -37,6 +37,8 @@ Hexagon &Hexagon::operator=(Hexagon &&other) noexcept
 bool Hexagon::operator==(const Figure &other) const
 {
     const Hexagon *otherHexagon = dynamic_cast<const Hexagon *>(&other);
+    if (!otherHexagon)
+        return false;
     for (int i = 0; i < 6; ++i)
     {
         if (points[i].x != otherHexagon->points[i].x && points[i].y != otherHexagon->points[i].y)
