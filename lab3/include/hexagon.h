@@ -11,6 +11,7 @@ public:
     Hexagon &operator=(Hexagon &&other) noexcept;
 
     bool operator==(const Figure &other) const override;
+    void getInfo() const override;
     Point geometricCenter() const override;
     operator double() const override;
 

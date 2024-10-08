@@ -64,14 +64,19 @@ Rhombus::operator double() const
 
 bool Rhombus::isValidRhombus() const
 {
-    double side1 = std::sqrt(std::pow(points[1].x - points[0].x, 2) + std::pow(points[1].y - points[0].y, 2));
-    double side2 = std::sqrt(std::pow(points[2].x - points[1].x, 2) + std::pow(points[2].y - points[1].y, 2));
-    double side3 = std::sqrt(std::pow(points[3].x - points[2].x, 2) + std::pow(points[3].y - points[2].y, 2));
-    double side4 = std::sqrt(std::pow(points[0].x - points[3].x, 2) + std::pow(points[0].y - points[3].y, 2));
-    if (!(side1 == side2 == side3 == side4))
+    const double epsilon = 1e-6;
+    double sideLength = std::sqrt(std::pow(points[1].x - points[0].x, 2) + std::pow(points[1].y - points[0].y, 2));
+
+    for (int i = 1; i < 4; ++i)
     {
-        throw std::invalid_argument("Points do not form a valid rhombus.");
+        int next = (i + 1) % 4;
+        double currentSide = std::sqrt(std::pow(points[next].x - points[i].x, 2) + std::pow(points[next].y - points[i].y, 2));
+        if (std::abs(currentSide - sideLength) > epsilon)
+        {
+            throw std::invalid_argument("Points do not form a valid pentagon.");
+        }
     }
+
     return true;
 }
 
@@ -103,4 +108,10 @@ std::istream &operator>>(std::istream &is, Rhombus &rhombus)
         rhombus.points[i] = points[i];
     }
     return is;
+}
+
+void Rhombus::getInfo() const
+{
+
+    std::cout << *this << std::endl;
 }
