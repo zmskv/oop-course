@@ -39,7 +39,7 @@ bool Pentagon::operator==(const Figure &other) const
     const Pentagon *otherPentagon = dynamic_cast<const Pentagon *>(&other);
     for (int i = 0; i < 5; ++i)
     {
-        if (points[i].x != otherPentagon->points[i].x || points[i].y != otherPentagon->points[i].y)
+        if (points[i].x != otherPentagon->points[i].x && points[i].y != otherPentagon->points[i].y)
         {
             return false;
         }

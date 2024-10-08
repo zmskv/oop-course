@@ -39,7 +39,7 @@ bool Hexagon::operator==(const Figure &other) const
     const Hexagon *otherHexagon = dynamic_cast<const Hexagon *>(&other);
     for (int i = 0; i < 6; ++i)
     {
-        if (points[i].x != otherHexagon->points[i].x || points[i].y != otherHexagon->points[i].y)
+        if (points[i].x != otherHexagon->points[i].x && points[i].y != otherHexagon->points[i].y)
         {
             return false;
         }
