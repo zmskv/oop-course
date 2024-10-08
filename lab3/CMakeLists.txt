@@ -8,7 +8,7 @@ add_executable(main_lab3 main.cpp)
 
 enable_testing()
 
-add_executable(tests_lab3 tests/test_binary.cpp)
+add_executable(tests_lab3 tests/test_figure.cpp)
 
 include(FetchContent)
 FetchContent_Declare(
