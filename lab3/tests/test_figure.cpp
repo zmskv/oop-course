@@ -15,9 +15,8 @@ TEST(RhombusTest, ConstructorAndEquality)
 TEST(RhombusTest, InvalidRhombus)
 {
     Point points[4] = {{0, 0}, {1, 0}, {2, 1}, {0, 1}};
-    Rhombus rhombus(points);
 
-    EXPECT_THROW(rhombus.isValidRhombus(), std::invalid_argument);
+    EXPECT_THROW(Rhombus rhombus(points), std::invalid_argument);
 }
 
 TEST(PentagonTest, ConstructorAndEquality)
@@ -32,9 +31,8 @@ TEST(PentagonTest, ConstructorAndEquality)
 TEST(PentagonTest, InvalidPentagon)
 {
     Point points[5] = {{1.0, 0.0}, {1.0, 1.0}, {1.0, 2.0}, {1.0, 3.0}, {1.0, 4.0}};
-    Pentagon pentagon(points);
 
-    EXPECT_THROW(pentagon.isValidPentagon(), std::invalid_argument);
+    EXPECT_THROW(Pentagon pentagon(points), std::invalid_argument);
 }
 
 TEST(HexagonTest, ConstructorAndEquality)
@@ -49,7 +47,6 @@ TEST(HexagonTest, ConstructorAndEquality)
 TEST(HexagonTest, InvalidHexagon)
 {
     Point points[6] = {{1.0, 0.0}, {1.0, 1.0}, {1.0, 2.0}, {1.0, 3.0}, {1.0, 4.0}, {1.0, 5.0}};
-    Hexagon hexagon(points);
 
-    EXPECT_THROW(hexagon.isValidHexagon(), std::invalid_argument);
+    EXPECT_THROW(Hexagon hexagon(points), std::invalid_argument);
 }
