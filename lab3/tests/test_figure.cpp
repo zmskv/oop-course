@@ -21,7 +21,7 @@ TEST(RhombusTest, InvalidRhombus)
 
 TEST(PentagonTest, Constructor)
 {
-    Point points[5] = {{1.0, 0.0}, {0.309, 0.951}, {-0.809, 0.588}, {-0.809, -0.588}, {0.309, -0.951}};
+    Point points[5] = {{1.0, 0.0}, {0.309016994, 0.951056516}, {-0.809016994, 0.587785252}, {-0.809016994, -0.587785252}, {0.309016994, -0.951056516}};
     Pentagon pentagon(points);
 
     ASSERT_NO_THROW(pentagon.getInfo());
@@ -37,7 +37,7 @@ TEST(PentagonTest, InvalidPentagon)
 
 TEST(HexagonTest, Constructor)
 {
-    Point points[6] = {{1.0, 0.0}, {0.5, 0.866}, {-0.5, 0.866}, {-1.0, 0.0}, {-0.5, -0.866}, {0.5, -0.866}};
+    Point points[6] = {{1.0, 0.0}, {0.5, std::sqrt(3) / 2}, {-0.5, std::sqrt(3) / 2}, {-1.0, 0.0}, {-0.5, -std::sqrt(3) / 2}, {0.5, -std::sqrt(3) / 2}};
     Hexagon hexagon(points);
 
     ASSERT_NO_THROW(hexagon.getInfo());
