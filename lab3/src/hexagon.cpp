@@ -73,7 +73,7 @@ Hexagon::operator double() const
 
 bool Hexagon::isValidHexagon() const
 {
-    const double epsilon = 1e-6;
+    const double epsilon = 1e-3;
     double sideLength = std::sqrt(std::pow(points[1].x - points[0].x, 2) + std::pow(points[1].y - points[0].y, 2));
 
     for (int i = 1; i < 6; ++i)
