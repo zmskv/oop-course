@@ -20,4 +20,9 @@ struct Point
         is >> point.x >> point.y;
         return is;
     }
+
+    bool operator==(const Point &other) const
+    {
+        return (x == other.x && y == other.y);
+    }
 };

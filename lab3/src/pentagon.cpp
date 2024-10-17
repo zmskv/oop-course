@@ -106,10 +106,6 @@ std::istream &operator>>(std::istream &is, Pentagon &pentagon)
     {
         is >> points[i];
     }
-    if (is.fail())
-    {
-        throw std::invalid_argument("Invalid number of points for Pentagon. Expected 5 points.");
-    }
     for (int i = 0; i < 5; ++i)
     {
         pentagon.points[i] = points[i];

@@ -98,10 +98,6 @@ std::istream &operator>>(std::istream &is, Rhombus &rhombus)
     {
         is >> points[i];
     }
-    if (is.fail())
-    {
-        throw std::invalid_argument("Invalid number of points for Rhombus. Expected 4 points.");
-    }
 
     for (int i = 0; i < 4; ++i)
     {

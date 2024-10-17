@@ -106,10 +106,6 @@ std::istream &operator>>(std::istream &is, Hexagon &hexagon)
     {
         is >> points[i];
     }
-    if (is.fail())
-    {
-        throw std::invalid_argument("Invalid number of points for Hexagon. Expected 6 points.");
-    }
     for (int i = 0; i < 6; ++i)
     {
         hexagon.points[i] = points[i];
