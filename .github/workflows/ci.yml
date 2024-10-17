@@ -36,4 +36,4 @@ jobs:
     - name: Run Tests
       run: |
         cd build/${{ matrix.lab }}
-        ctest
+        ./tests_${{ matrix.lab }}
