@@ -20,7 +20,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name:  Install googletest
+    - name: Install googletest
       uses: cvpkg/googletest-action@v0.1
       with:
           googletest_tag: 'release-1.11.0'
@@ -35,7 +35,10 @@ jobs:
 
     - name: Build Project
       run: |
-        make build
+        mkdir -p build
+        cd build
+        cmake ..
+        make all
         
     - name: Run Tests
       run: |
