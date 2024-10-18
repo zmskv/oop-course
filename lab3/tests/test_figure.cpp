@@ -132,6 +132,19 @@ TEST(PentagonTest, EqualityOperator)
     EXPECT_TRUE(pentagon1 == pentagon2);
 }
 
+TEST(PentagonTest, ConversionToDouble)
+{
+    Point points[5] = {
+        Point(1, 0),
+        Point(0.309, 0.951),
+        Point(-0.809, 0.588),
+        Point(-0.809, -0.588),
+        Point(0.309, -0.951)};
+    Pentagon pentagon(points);
+    double area = static_cast<double>(pentagon);
+    EXPECT_NEAR(area, 2.4, 0.1);
+}
+
 TEST(RhombusTest, DefaultConstructor)
 {
     Rhombus rhombus;
