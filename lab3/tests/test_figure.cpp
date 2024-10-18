@@ -74,104 +74,63 @@ TEST(PentagonTest, DefaultConstructor)
     EXPECT_NO_THROW();
 }
 
-// TEST(PentagonTest, ParametrizedConstructor)
-// {
-//     Point points[5] = {
-//         Point(-0.5, -0.5),
-//         Point(0.5, -0.5),
-//         Point(0.5, 0.5),
-//         Point(-0.5, 0.5),
-//         Point(0.0, 1.0)};
-//     Pentagon pentagon(points);
-//     EXPECT_NO_THROW();
-// }
+TEST(PentagonTest, ParametrizedConstructor)
+{
+    Point points[5] = {
+        Point(1, 0),
+        Point(0.309, 0.951),
+        Point(-0.809, 0.588),
+        Point(-0.809, -0.588),
+        Point(0.309, -0.951)};
+    EXPECT_NO_THROW(Pentagon pentagon(points));
+}
 
-// TEST(PentagonTest, CopyAssignment)
-// {
-//     Point points[5] = {
-//         Point(-0.5, -0.5),
-//         Point(0.5, -0.5),
-//         Point(0.5, 0.5),
-//         Point(-0.5, 0.5),
-//         Point(0.0, 1.0)};
-//     Pentagon pentagon1(points);
-//     Pentagon pentagon2;
-//     pentagon2 = pentagon1;
-//     EXPECT_EQ(pentagon1, pentagon2);
-// }
+TEST(PentagonTest, CopyAssignment)
+{
+    Point points[5] = {
+        Point(1, 0),
+        Point(0.309, 0.951),
+        Point(-0.809, 0.588),
+        Point(-0.809, -0.588),
+        Point(0.309, -0.951)};
+    Pentagon pentagon1(points);
+    Pentagon pentagon2;
+    pentagon2 = pentagon1;
+    EXPECT_EQ(pentagon1, pentagon2);
+}
 
-// TEST(PentagonTest, MoveAssignment)
-// {
-//     Point points[5] = {
-//         Point(-0.5, -0.5),
-//         Point(0.5, -0.5),
-//         Point(0.5, 0.5),
-//         Point(-0.5, 0.5),
-//         Point(0.0, 1.0)};
-//     Pentagon pentagon1(points);
-//     Pentagon pentagon2;
-//     pentagon2 = std::move(pentagon1);
-//     EXPECT_NO_THROW();
-// }
+TEST(PentagonTest, MoveAssignment)
+{
+    Point points[5] = {
+        Point(1, 0),
+        Point(0.309, 0.951),
+        Point(-0.809, 0.588),
+        Point(-0.809, -0.588),
+        Point(0.309, -0.951)};
+    Pentagon pentagon1(points);
+    Pentagon pentagon2;
+    pentagon2 = std::move(pentagon1);
+    EXPECT_NO_THROW();
+}
 
-// TEST(PentagonTest, EqualityOperator)
-// {
-//     Point points1[5] = {
-//         Point(-0.5, -0.5),
-//         Point(0.5, -0.5),
-//         Point(0.5, 0.5),
-//         Point(-0.5, 0.5),
-//         Point(0.0, 1.0)};
-//     Point points2[5] = {
-//         Point(-0.5, -0.5),
-//         Point(0.5, -0.5),
-//         Point(0.5, 0.5),
-//         Point(-0.5, 0.5),
-//         Point(0.0, 1.0)};
-//     Pentagon pentagon1(points1);
-//     Pentagon pentagon2(points2);
-//     EXPECT_TRUE(pentagon1 == pentagon2);
-// }
-
-// TEST(PentagonTest, GeometricCenter)
-// {
-//     Point points[5] = {
-//         Point(-0.5, -0.5),
-//         Point(0.5, -0.5),
-//         Point(0.5, 0.5),
-//         Point(-0.5, 0.5),
-//         Point(0.0, 1.0)};
-//     Pentagon pentagon(points);
-//     Point center = pentagon.geometricCenter();
-//     EXPECT_EQ(center, Point(1, 1.5));
-// }
-
-// TEST(PentagonTest, ConversionToDouble)
-// {
-//     Point points[5] = {
-//         Point(-0.5, -0.5),
-//         Point(0.5, -0.5),
-//         Point(0.5, 0.5),
-//         Point(-0.5, 0.5),
-//         Point(0.0, 1.0)};
-//     Pentagon pentagon(points);
-//     double area = static_cast<double>(pentagon);
-//     EXPECT_NEAR(area, 6.0, 0.001);
-// }
-
-// TEST(PentagonTest, OutputOperator)
-// {
-//     Point points[5] = {
-//         Point(-0.5, -0.5),
-//         Point(0.5, -0.5),
-//         Point(0.5, 0.5),
-//         Point(-0.5, 0.5),
-//         Point(0.0, 1.0)};
-//     Pentagon pentagon(points);
-//     std::stringstream ss;
-//     ss << pentagon;
-//     EXPECT_FALSE(ss.str().empty());
-// }
+TEST(PentagonTest, EqualityOperator)
+{
+    Point points1[5] = {
+        Point(1, 0),
+        Point(0.309, 0.951),
+        Point(-0.809, 0.588),
+        Point(-0.809, -0.588),
+        Point(0.309, -0.951)};
+    Point points2[5] = {
+        Point(1, 0),
+        Point(0.309, 0.951),
+        Point(-0.809, 0.588),
+        Point(-0.809, -0.588),
+        Point(0.309, -0.951)};
+    Pentagon pentagon1(points1);
+    Pentagon pentagon2(points2);
+    EXPECT_TRUE(pentagon1 == pentagon2);
+}
 
 TEST(RhombusTest, DefaultConstructor)
 {
