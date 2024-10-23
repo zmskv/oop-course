@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        lab: [lab1, lab2, lab3] 
+        lab: [lab1, lab2, lab3, lab4] 
 
     steps:
     - name: Checkout code

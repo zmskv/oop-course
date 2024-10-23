@@ -9,6 +9,7 @@ add_subdirectory(external/googletest)
 add_subdirectory(lab1)
 add_subdirectory(lab2)
 add_subdirectory(lab3)
+add_subdirectory(lab4)
 
 set(GTEST_DIR external/googletest)
 
