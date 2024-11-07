@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "../src/singly_linked_list.cpp"
 #include "../src/block_memory_resourse.cpp"
+#include "../src/singly_linked_list.cpp"
 #include <string>
 #include <stdexcept>
 #include <memory>
@@ -55,8 +55,17 @@ TEST(SinglyLinkedListTest, Clear)
     list.clear();
     EXPECT_EQ(list.begin(), list.end());
 }
+
 TEST(SinglyLinkedListTest, PushFrontPerson)
 {
+    struct Person
+    {
+        std::string name;
+        int age;
+
+        Person(const std::string &n, int a) : name(n), age(a) {}
+    };
+
     BlockMemoryResource memory_resource(SinglyLinkedList<Person>::node_size(), 5);
     SinglyLinkedList<Person> list(&memory_resource);
 
@@ -109,6 +118,13 @@ TEST(SinglyLinkedListTest, MixedOperations)
 
 TEST(SinglyLinkedListTest, PushFrontDifferentTypes)
 {
+    struct Person
+    {
+        std::string name;
+        int age;
+
+        Person(const std::string &n, int a) : name(n), age(a) {}
+    };
     BlockMemoryResource memory_resource(SinglyLinkedList<Person>::node_size(), 5);
     SinglyLinkedList<Person> list(&memory_resource);
 
