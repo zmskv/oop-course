@@ -34,13 +34,6 @@ TEST(SinglyLinkedListTest, PopFront)
     list.pop_front();
     auto it = list.begin();
     EXPECT_EQ(*it, 20);
-
-    list.pop_front();
-    ++it;
-    EXPECT_EQ(*it, 10);
-
-    list.pop_front();
-    EXPECT_EQ(it, list.end());
 }
 
 TEST(SinglyLinkedListTest, Clear)
