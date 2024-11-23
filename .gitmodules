@@ -1,3 +1,6 @@
 [submodule "external/googletest"]
 	path = external/googletest
 	url = https://github.com/google/googletest/
+[submodule "lab6/websocket_stream"]
+	path = lab6/websocket_stream
+	url = https://github.com/zmskv/websocket_stream
