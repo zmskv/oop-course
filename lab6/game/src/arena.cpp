@@ -1,6 +1,8 @@
 #include "../include/arena.h"
 #include "../include/battle_visitor.h"
 #include <algorithm>
+#include <fstream>
+#include <sstream>
 
 Arena::Arena(int width, int height) : width(width), height(height) {}
 
@@ -69,14 +71,22 @@ void Arena::startBattle(int range)
     }
 }
 
-void Arena::spawnNPC(const std::string &type, const std::string &name)
+void Arena::spawnNPC(const std::string &type, const std::string &name, int x = -1, int y = -1)
 {
-    int x = randomCoordinate(0, width);
-    int y = randomCoordinate(0, height);
+    if (x == -1 || y == -1)
+    {
+        x = randomCoordinate(0, width);
+        y = randomCoordinate(0, height);
+    }
+
     auto npc = NPCFactory::createNPC(type, name, x, y);
     if (npc)
     {
         addNPC(std::move(npc));
+    }
+    else
+    {
+        std::cerr << "Failed to spawn NPC of type: " << type << "\n";
     }
 }
 
@@ -86,4 +96,58 @@ int Arena::randomCoordinate(int min, int max)
     static std::mt19937 gen(rd());
     std::uniform_int_distribution<> dis(min, max);
     return dis(gen);
+}
+
+void Arena::saveNPCsToFile(const std::string &filename)
+{
+    std::ofstream file(filename);
+    if (!file.is_open())
+    {
+        throw std::runtime_error("Unable to open file for saving NPCs");
+    }
+    for (const auto &npc : npcs)
+    {
+        file << npc->getName() << " " << npc->getX() << " " << npc->getY() << " " << npc->getType() << "\n";
+    }
+    file.close();
+}
+
+void Arena::loadNPCsFromFile(const std::string &filename)
+{
+    std::ifstream file(filename);
+    if (!file.is_open())
+    {
+        throw std::runtime_error("Unable to open file for loading NPCs");
+    }
+    std::string line;
+    while (std::getline(file, line))
+    {
+        std::istringstream iss(line);
+        std::string name, type;
+        int x, y;
+        iss >> name >> x >> y >> type;
+        if (type == "Dragon")
+        {
+            addNPC(std::make_unique<Dragon>(name, x, y));
+        }
+        else if (type == "Frog")
+        {
+            addNPC(std::make_unique<Frog>(name, x, y));
+        }
+        else if (type == "Knight")
+        {
+            addNPC(std::make_unique<Knight>(name, x, y));
+        }
+    }
+    file.close();
+}
+
+void Arena::printNPCs() const
+{
+    for (const auto &npc : npcs)
+    {
+        std::cout << "Type: " << npc->getType()
+                  << ", Name: " << npc->getName()
+                  << ", Coordinates: (" << npc->getX() << ", " << npc->getY() << ")\n";
+    }
 }
