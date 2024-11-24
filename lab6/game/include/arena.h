@@ -14,7 +14,10 @@ public:
     void addNPC(std::unique_ptr<NPC> npc);
     void addObserver(std::shared_ptr<Observer> observer);
     void startBattle(int range);
-    void spawnNPC(const std::string &type, const std::string &name);
+    void spawnNPC(const std::string &type, const std::string &name, int x, int y);
+    void saveNPCsToFile(const std::string &filename);
+    void loadNPCsFromFile(const std::string &filename);
+    void printNPCs() const;
 
 private:
     int width, height;

@@ -13,6 +13,7 @@ public:
     int getY() const { return y; }
 
     virtual void accept(class Visitor &visitor) = 0;
+    virtual std::string getType() const = 0;
 
 protected:
     std::string name;
