@@ -73,8 +73,6 @@ void BattleVisitor::visit(Frog &frog)
         }
     }
 
-    std::cout << "Frog killed itself: " << frog.getName() << std::endl;
-
     for (auto it = npcs.begin(); it != npcs.end();)
     {
         if (it->get() == &frog)
