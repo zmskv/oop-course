@@ -65,6 +65,8 @@ services:
     container_name: cpp_app
     depends_on:
       - kafka
+    stdin_open: true
+    tty: true
     environment:
       KAFKA_BROKERS: "kafka:9092"
       KAFKA_TOPIC: "battle_events"
