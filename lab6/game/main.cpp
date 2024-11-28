@@ -15,7 +15,7 @@ void printMenu()
               << "2. Spawn random NPC\n"
               << "3. Print NPCs\n"
               << "4. Start battle\n"
-              << "5. Connect Kafka (mock)\n"
+              << "5. Connect Kafka\n"
               << "6. Save NPCs to file\n"
               << "7. Load NPCs from file\n"
               << "0. Exit\n"
